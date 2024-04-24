@@ -77,7 +77,7 @@ def publish_Fake_Sensor_Values_to_MQTT():
         toggle = 3
 
     elif toggle == 3:
-        X_Fake_Value = float("{0:.2f}".format(random.uniform(0, 1.01)))
+        X_Fake_Value = int(random.randint(0,1))
 
         X_Data = {}
         X_Data['Sensor_ID'] = "Type-4"
@@ -103,15 +103,15 @@ def publish_Fake_Sensor_Values_to_MQTT():
         toggle = 5
 
     elif toggle == 5:
-        random_color = fake.color_name()
+        Z_Fake_Value = int(random.randint(0,1))
 
         Z_Data = {}
         Z_Data['Sensor_ID'] = "Type-6"
         Z_Data['Date'] = datetime.today().strftime("%d-%b-%Y %H:%M:%S:%f")
-        Z_Data['Z'] = random_color
+        Z_Data['Z'] = Z_Fake_Value
         z_json_data = json.dumps(Z_Data)
 
-        print("Publishing fake Z Value: " + str(random_color) + "...")
+        print("Publishing fake Z Value: " + str(Z_Fake_Value) + "...")
         publish_To_Topic(MQTT_Topic_Z, z_json_data)
         toggle = 0
 
