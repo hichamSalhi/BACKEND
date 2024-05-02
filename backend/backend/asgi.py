@@ -17,6 +17,7 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 from django.core.asgi import get_asgi_application
 from sensor.consumers import DataConsumer
+from machine.consumers import MachineConsumer
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 django.setup()
@@ -24,6 +25,7 @@ print("Starting ASGI application...")
 
 websocket_urlpatterns = [
     path('ws', DataConsumer.as_asgi()),
+    path('machine', MachineConsumer.as_asgi())
     # Define other WebSocket URL patterns here... ws://localhost:8000/ws
 ]
 

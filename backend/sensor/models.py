@@ -60,3 +60,13 @@ class ZData(models.Model):
     class Meta:
         db_table = 'Z_Data'  # Set the table name if it differs from the model name
         app_label = 'sensor'  # Specify the app label if necessary
+
+class LData(models.Model):
+    id = models.AutoField(primary_key=True)
+    SensorID = models.TextField()
+    Date_n_Time = models.TextField()
+    Z = models.TextField()
+
+    class Meta:
+        db_table = 'L_Data'  # Set the table name if it differs from the model name
+        app_label = 'sensor'  # Specify the app label if necessary

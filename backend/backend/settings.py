@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
+    'machine.apps.MachineConfig',
     'public.apps.PublicConfig',
+    'maintenance.apps.MaintenanceConfig',
     'sensor.apps.SensorConfig',
     'corsheaders',
     'channels',
@@ -87,12 +89,8 @@ ASGI_APPLICATION = 'backend.asgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    'iot': {
-        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'IoT.sqlite3',
-    },
+    }
 }
 
 

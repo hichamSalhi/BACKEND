@@ -3,8 +3,6 @@ import django
 import os
 import json
 import asyncio
-import datetime
-
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 django.setup()
@@ -53,7 +51,7 @@ class DataConsumer(AsyncWebsocketConsumer):
     @database_sync_to_async
     def get_latest_records(self, model_class):
         # Retrieve the latest five records from the specified model
-        latest_five_records = model_class.objects.using('iot').order_by('-Date_n_Time')[:5]
+        latest_five_records = model_class.objects.using('default')
         print("Latest five records for", model_class.__name__, ":", latest_five_records)
 
         return list(latest_five_records)

@@ -37,6 +37,6 @@ mqttc.on_connect = on_connect
 
 # Connect to MQTT broker
 mqttc.connect(MQTT_Broker, int(MQTT_Port))
-                                                    
+
 # Continuously monitor for messages
 mqttc.loop_forever()
